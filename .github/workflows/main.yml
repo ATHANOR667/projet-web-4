@@ -4,7 +4,12 @@ on:
   push:
     branches:
       - main
+      - lumiere   # 🔥 Ajout de ta branche personnelle
   pull_request:
+    branches:
+      - main
+      - lumiere
+
 
 jobs:
   build:
