@@ -11,35 +11,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Récupérer le code
       - name: Checkout du code
         uses: actions/checkout@v3
 
+      # 2️⃣ Installer Node.js
       - name: Installer Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
+      # 3️⃣ Installer les dépendances
       - name: Installer les dépendances
         run: npm install
 
+      # 4️⃣ Lancer les tests (facultatif)
       - name: Lancer les tests
         run: npm test
-        jobs:
-  build:
-    runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      # Nouvelle étape ESLint
-      - name: Run ESLint
+      # 5️⃣ Analyser le code avec ESLint
+      - name: Exécuter ESLint
         run: npx eslint . --ext .js,.ts
-
